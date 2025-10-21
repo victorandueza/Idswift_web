@@ -41,6 +41,8 @@ done
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
 public_dir="dist"
+commit_hash="$(git rev-parse --short HEAD 2>/dev/null || echo "nogit")"
+version_tag="${commit_hash}-$(date -u +%Y%m%d%H%M%S)"
 
 mkdir -p "$public_dir"
 
@@ -103,10 +105,53 @@ inject_badge(){
   mv "$tmp" "$file"
 }
 
+ensure_python(){
+  if ! command -v python3 >/dev/null 2>&1; then
+    echo "python3 is required to run cache busting tasks" >&2
+    exit 1
+  fi
+}
+
+cache_bust_assets(){
+  local file="$1"
+  ensure_python
+  python3 - "$file" "$version_tag" <<'PY'
+import pathlib
+import re
+import sys
+
+html_path = pathlib.Path(sys.argv[1])
+version = sys.argv[2]
+content = html_path.read_text(encoding="utf-8")
+
+assets_pattern = re.compile(r'=(["\'])(\.?/)?assets/([^"\']+?)(?:\?v=[^"\']*)?\1')
+favicon_pattern = re.compile(r'=(["\'])(favicon\.ico)(?:\?v=[^"\']*)?\1')
+
+def replace_assets(match: re.Match) -> str:
+    quote = match.group(1)
+    prefix = match.group(2) or ""
+    path = match.group(3)
+    return f'={quote}{prefix}assets/{path}?v={version}{quote}'
+
+def replace_favicon(match: re.Match) -> str:
+    quote = match.group(1)
+    path = match.group(2)
+    return f'={quote}{path}?v={version}{quote}'
+
+content = assets_pattern.sub(replace_assets, content)
+content = favicon_pattern.sub(replace_favicon, content)
+
+html_path.write_text(content, encoding="utf-8")
+PY
+}
+
 copy_site
+
+echo "Cache buster token: $version_tag"
 
 for page in "$public_dir"/*.html; do
   inject_badge "$page"
+  cache_bust_assets "$page"
   if command -v sha256sum >/dev/null 2>&1; then
     echo "Hash for ${page}:"
     sha256sum "$page"

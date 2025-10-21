@@ -1,9 +1,9 @@
 {
   "projects": {
-    "default": "your-firebase-project-id"
+    "default": "idinterpreter"
   },
   "targets": {
-    "your-firebase-project-id": {
+    "idinterpreter": {
       "hosting": {
         "idswift": [
           "idswift"
@@ -16,5 +16,6 @@
         ]
       }
     }
-  }
+  },
+  "etags": {}
 }

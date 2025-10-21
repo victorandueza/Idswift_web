@@ -102,7 +102,7 @@ header {
 
 .logo img {
   display: block;
-  height: 38px;
+  height: clamp(30px, 4.5vw, 40px);
 }
 
 .logo-mark {
