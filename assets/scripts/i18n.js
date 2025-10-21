@@ -24,6 +24,9 @@
             es: 'Switch to Spanish',
           },
         },
+        cta: {
+          startProject: 'Start a project',
+        },
         footer: {
           privacy: 'Privacy',
         },
@@ -350,6 +353,9 @@
             en: 'Cambiar a inglés',
             es: 'Cambiar a español',
           },
+        },
+        cta: {
+          startProject: 'Iniciar un proyecto',
         },
         footer: {
           privacy: 'Privacidad',
