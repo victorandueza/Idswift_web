@@ -1,0 +1,8 @@
+<svg width="240" height="72" viewBox="0 0 240 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">IDSWIFT logo</title>
+  <desc id="desc">Stylised swift bird mark followed by the IDSWIFT logotype.</desc>
+  <g fill="#0E3D36">
+    <path d="M0 31.5C12.2 14.9 39.5 4.3 71.8 8.7c12.9 1.8 25.2 6.1 36.5 12.6-20.2 1.5-36.4 6.6-44.8 15.5 12.4.2 26.2 1.2 39.8 3.6-30.8 9.4-66.4 9.9-103.3 1.1z"/>
+    <text x="118" y="47" font-family="'Montserrat','Segoe UI',sans-serif" font-size="36" font-weight="700" font-style="italic" letter-spacing="1">IDSWIFT</text>
+  </g>
+</svg>

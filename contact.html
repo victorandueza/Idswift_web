@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IDSWIFT | Contact</title>
+  <meta name="description" content="Contact the IDSWIFT team to scope your hotel check-in automation roadmap." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles/main.css" />
+  <script src="assets/scripts/main.js" defer></script>
+</head>
+<body class="page-contact">
+  <header role="banner" aria-label="Header">
+    <div class="container nav">
+      <a class="logo" href="index.html" aria-label="Go to home">
+        <img src="assets/media/logo-idswift.svg" alt="IDSWIFT" height="38" />
+      </a>
+      <nav aria-label="Primary">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="services.html">Services</a>
+        <a class="btn" href="clients.html">Clients</a>
+        <a class="btn" href="contact.html" aria-current="page">Contact</a>
+        <a class="btn" href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Contact</h1>
+        <p>Tell us about your properties, PMS stack, and guest experience goals. The IDSWIFT team replies within 24-48 business hours.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Contact form">
+      <div class="container contact">
+        <div>
+          <h2>Start the conversation</h2>
+          <p class="small">Share a few details so we can prepare a relevant proposal.</p>
+          <form id="contactForm" aria-describedby="formStatus" novalidate>
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@hotelgroup.com" required />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="What would you like to achieve?" required></textarea>
+            </div>
+            <div>
+              <label class="small"><input type="checkbox" id="consent" required /> I have read and accept the <a href="privacy.html">privacy policy</a>.</label>
+            </div>
+            <input type="hidden" id="ACTION_URL" value="" />
+            <button class="btn primary" id="submitBtn" type="submit">Send</button>
+            <p id="formStatus" class="status" role="status" aria-live="polite"></p>
+
+            <!-- Configure your submission endpoint:
+              Option without a backend (Formspree):
+              1) Create a form at https://formspree.io and copy the endpoint (e.g. https://formspree.io/f/abcdxyz)
+              2) Paste it into the ACTION_URL field above before going live. -->
+          </form>
+        </div>
+        <aside>
+          <h2>Project checklist</h2>
+          <p class="small">Include these details if you already have them:</p>
+          <ul class="small">
+            <li>Number of properties and expected seasonal volume.</li>
+            <li>PMS, channel manager, or CRM that we should integrate.</li>
+            <li>Current pain points during check-in or verification.</li>
+            <li>Desired go-live date and internal stakeholders.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html">Privacy</a>
+  </footer>
+
+  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences">
+    <p>We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
+    <div class="actions">
+      <button id="cookie-accept" class="btn primary" type="button">Accept</button>
+      <a class="btn" href="privacy.html">Settings</a>
+    </div>
+  </div>
+</body>
+</html>
