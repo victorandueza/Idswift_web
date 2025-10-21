@@ -3,93 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IDSWIFT | Privacy</title>
-  <meta name="description" content="Review IDSWIFT's privacy notice, data processing details, and cookie preferences." />
+  <title data-i18n="privacy.meta.title">IDSWIFT | Privacy</title>
+  <meta name="description" content="Review IDSWIFT's privacy notice, data processing details, and cookie preferences." data-i18n="privacy.meta.description" data-i18n-attr="content" />
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles/main.css" />
+  <script src="assets/scripts/i18n.js" defer></script>
   <script src="assets/scripts/main.js" defer></script>
 </head>
 <body class="page-privacy">
-  <header role="banner" aria-label="Header">
+  <header role="banner" aria-label="Header" data-i18n="common.aria.header" data-i18n-attr="aria-label">
     <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Go to home">
+      <a class="logo" href="index.html" aria-label="Go to home" data-i18n="common.aria.logo" data-i18n-attr="aria-label">
         <img src="assets/media/logo.png" alt="IDSWIFT" height="40" />
       </a>
-      <nav aria-label="Primary">
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="services.html">Services</a>
-        <a class="btn" href="clients.html">Clients</a>
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn" href="privacy.html" aria-current="page">Privacy</a>
-      </nav>
+      <div class="nav-actions">
+        <nav aria-label="Primary navigation" data-i18n="common.aria.nav" data-i18n-attr="aria-label">
+          <a class="btn" href="index.html" data-i18n="common.nav.home">Home</a>
+          <a class="btn" href="services.html" data-i18n="common.nav.services">Services</a>
+          <a class="btn" href="clients.html" data-i18n="common.nav.clients">Clients</a>
+          <a class="btn" href="contact.html" data-i18n="common.nav.contact">Contact</a>
+          <a class="btn" href="privacy.html" aria-current="page" data-i18n="common.nav.privacy">Privacy</a>
+        </nav>
+        <div class="lang-switcher" role="group" aria-label="Language selector" data-i18n="common.aria.languageSelector" data-i18n-attr="aria-label">
+          <button class="lang-btn" type="button" data-lang="en" data-i18n="common.languages.switch.en" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/en.svg" alt="" />
+          </button>
+          <button class="lang-btn" type="button" data-lang="es" data-i18n="common.languages.switch.es" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/es.svg" alt="" />
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-header" aria-label="Privacy page header" data-i18n="privacy.header.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h1>Privacy Notice</h1>
-        <p>IDSWIFT treats guest data with the same care that hospitality teams put into their service.</p>
+        <h1 data-i18n="privacy.header.title">Privacy Notice</h1>
+        <p data-i18n="privacy.header.intro">IDSWIFT treats guest data with the same care that hospitality teams put into their service.</p>
       </div>
     </section>
 
-    <section class="section policy" aria-label="Privacy details">
+    <section class="section policy" aria-label="Privacy details" data-i18n="privacy.summary.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h2>Data processing summary</h2>
-        <p class="small">This overview helps you understand who processes your information, why we do it, and how we protect it.</p>
+        <h2 data-i18n="privacy.summary.title">Data processing summary</h2>
+        <p class="small" data-i18n="privacy.summary.intro">This overview helps you understand who processes your information, why we do it, and how we protect it.</p>
         <div class="grid">
           <article class="card">
-            <h3>Data controller</h3>
-            <p class="small">IDSWIFT Labs, S.L. - VAT ESB12345678 - Calle Ejemplo 12, 28000 Madrid (Spain). Email: <a href="mailto:privacy@idswift.com">privacy@idswift.com</a></p>
-            <h3>Purpose</h3>
-            <p class="small">To deliver the hotel check-in platform, onboard users, manage customer support, and send service-related communications.</p>
-            <h3>Legal basis</h3>
-            <p class="small">Legitimate interest, contractual necessity, and explicit consent when required (e.g. marketing opt-ins).</p>
-            <h3>Retention</h3>
-            <p class="small">We keep personal data for as long as necessary to provide the service and comply with legal obligations. Afterwards we block it according to statutory periods.</p>
+            <h3 data-i18n="privacy.summary.cards.0.sections.0.title">Data controller</h3>
+            <p class="small" data-i18n="privacy.summary.cards.0.sections.0.body">IDSWIFT Labs, S.L. - VAT ESB12345678 - Calle Ejemplo 12, 28000 Madrid (Spain). Email: <a href="mailto:privacy@idswift.com">privacy@idswift.com</a></p>
+            <h3 data-i18n="privacy.summary.cards.0.sections.1.title">Purpose</h3>
+            <p class="small" data-i18n="privacy.summary.cards.0.sections.1.body">To deliver the hotel check-in platform, onboard users, manage customer support, and send service-related communications.</p>
+            <h3 data-i18n="privacy.summary.cards.0.sections.2.title">Legal basis</h3>
+            <p class="small" data-i18n="privacy.summary.cards.0.sections.2.body">Legitimate interest, contractual necessity, and explicit consent when required (e.g. marketing opt-ins).</p>
+            <h3 data-i18n="privacy.summary.cards.0.sections.3.title">Retention</h3>
+            <p class="small" data-i18n="privacy.summary.cards.0.sections.3.body">We keep personal data for as long as necessary to provide the service and comply with legal obligations. Afterwards we block it according to statutory periods.</p>
           </article>
           <article class="card">
-            <h3>Recipients</h3>
-            <p class="small">Service providers that enable hosting, messaging, analytics, and support. We never sell data and we only share it when strictly necessary or under legal mandate.</p>
-            <h3>International transfers</h3>
-            <p class="small">If we transfer data outside the EU/EEA, we rely on adequate safeguards such as Standard Contractual Clauses or approved certification mechanisms.</p>
-            <h3>Rights</h3>
-            <p class="small">You can access, rectify, delete, oppose, restrict, or port your data. Contact <a href="mailto:privacy@idswift.com">privacy@idswift.com</a> or submit a claim to the Spanish DPA (AEPD).</p>
-            <h3>Cookies</h3>
-            <p class="small">We use strictly necessary cookies and optional analytics cookies. You can manage consent at any time from this site.</p>
+            <h3 data-i18n="privacy.summary.cards.1.sections.0.title">Recipients</h3>
+            <p class="small" data-i18n="privacy.summary.cards.1.sections.0.body">Service providers that enable hosting, messaging, analytics, and support. We never sell data and we only share it when strictly necessary or under legal mandate.</p>
+            <h3 data-i18n="privacy.summary.cards.1.sections.1.title">International transfers</h3>
+            <p class="small" data-i18n="privacy.summary.cards.1.sections.1.body">If we transfer data outside the EU/EEA, we rely on adequate safeguards such as Standard Contractual Clauses or approved certification mechanisms.</p>
+            <h3 data-i18n="privacy.summary.cards.1.sections.2.title">Rights</h3>
+            <p class="small" data-i18n="privacy.summary.cards.1.sections.2.body">You can access, rectify, delete, oppose, restrict, or port your data. Contact <a href="mailto:privacy@idswift.com">privacy@idswift.com</a> or submit a claim to the Spanish DPA (AEPD).</p>
+            <h3 data-i18n="privacy.summary.cards.1.sections.3.title">Cookies</h3>
+            <p class="small" data-i18n="privacy.summary.cards.1.sections.3.body">We use strictly necessary cookies and optional analytics cookies. You can manage consent at any time from this site.</p>
           </article>
           <article class="card">
-            <h3>Security</h3>
-            <p class="small">TLS encryption, access controls, logging, regular backups, and vendor due diligence keep your information safe.</p>
-            <h3>DPO contact</h3>
-            <p class="small">If we appoint a Data Protection Officer, you can reach them at <a href="mailto:dpo@idswift.com">dpo@idswift.com</a>.</p>
-            <h3>Updates</h3>
-            <p class="small">We will update this notice whenever we change how we process data. Last review: <span id="policyDate"></span>.</p>
-            <h3>Need a signed DPA?</h3>
-            <p class="small">Reach out to our legal team to request a tailored Data Processing Agreement for your organisation.</p>
+            <h3 data-i18n="privacy.summary.cards.2.sections.0.title">Security</h3>
+            <p class="small" data-i18n="privacy.summary.cards.2.sections.0.body">TLS encryption, access controls, logging, regular backups, and vendor due diligence keep your information safe.</p>
+            <h3 data-i18n="privacy.summary.cards.2.sections.1.title">DPO contact</h3>
+            <p class="small" data-i18n="privacy.summary.cards.2.sections.1.body">If we appoint a Data Protection Officer, you can reach them at <a href="mailto:dpo@idswift.com">dpo@idswift.com</a>.</p>
+            <h3 data-i18n="privacy.summary.cards.2.sections.2.title">Updates</h3>
+            <p class="small" data-i18n="privacy.summary.cards.2.sections.2.body">We will update this notice whenever we change how we process data. Last review: <span id="policyDate"></span>.</p>
+            <h3 data-i18n="privacy.summary.cards.2.sections.3.title">Need a signed DPA?</h3>
+            <p class="small" data-i18n="privacy.summary.cards.2.sections.3.body">Reach out to our legal team to request a tailored Data Processing Agreement for your organisation.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Cookie preferences">
+    <section class="section" aria-label="Cookie preferences" data-i18n="privacy.cookies.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h2>Cookie categories</h2>
+        <h2 data-i18n="privacy.cookies.title">Cookie categories</h2>
         <div class="grid">
           <article class="card">
-            <h3>Strictly necessary</h3>
-            <p class="small">Required for login sessions, language preferences, and secure request handling. Cannot be disabled.</p>
+            <h3 data-i18n="privacy.cookies.cards.0.title">Strictly necessary</h3>
+            <p class="small" data-i18n="privacy.cookies.cards.0.body">Required for login sessions, language preferences, and secure request handling. Cannot be disabled.</p>
           </article>
           <article class="card">
-            <h3>Analytics</h3>
-            <p class="small">Help us understand usage so we can improve flows. Enabled only with your explicit consent.</p>
+            <h3 data-i18n="privacy.cookies.cards.1.title">Analytics</h3>
+            <p class="small" data-i18n="privacy.cookies.cards.1.body">Help us understand usage so we can improve flows. Enabled only with your explicit consent.</p>
           </article>
           <article class="card">
-            <h3>Marketing</h3>
-            <p class="small">Used occasionally for product updates or remarketing. Disabled by default unless you opt in.</p>
+            <h3 data-i18n="privacy.cookies.cards.2.title">Marketing</h3>
+            <p class="small" data-i18n="privacy.cookies.cards.2.body">Used occasionally for product updates or remarketing. Disabled by default unless you opt in.</p>
           </article>
         </div>
       </div>
@@ -97,14 +108,14 @@
   </main>
 
   <footer>
-    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html" aria-current="page">Privacy</a>
+    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html" aria-current="page" data-i18n="common.nav.privacy">Privacy</a>
   </footer>
 
-  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences">
-    <p>We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
+  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences" data-i18n="common.aria.cookieDialog" data-i18n-attr="aria-label">
+    <p data-i18n="common.cookie.message">We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
     <div class="actions">
-      <button id="cookie-accept" class="btn primary" type="button">Accept</button>
-      <a class="btn" href="privacy.html">Settings</a>
+      <button id="cookie-accept" class="btn primary" type="button" data-i18n="common.cookie.accept">Accept</button>
+      <a class="btn" href="privacy.html" data-i18n="common.cookie.settings">Settings</a>
     </div>
   </div>
 </body>

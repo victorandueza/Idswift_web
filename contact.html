@@ -3,62 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IDSWIFT | Contact</title>
-  <meta name="description" content="Contact the IDSWIFT team to scope your hotel check-in automation roadmap." />
+  <title data-i18n="contact.meta.title">IDSWIFT | Contact</title>
+  <meta name="description" content="Contact the IDSWIFT team to scope your hotel check-in automation roadmap." data-i18n="contact.meta.description" data-i18n-attr="content" />
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles/main.css" />
+  <script src="assets/scripts/i18n.js" defer></script>
   <script src="assets/scripts/main.js" defer></script>
 </head>
 <body class="page-contact">
-  <header role="banner" aria-label="Header">
+  <header role="banner" aria-label="Header" data-i18n="common.aria.header" data-i18n-attr="aria-label">
     <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Go to home">
+      <a class="logo" href="index.html" aria-label="Go to home" data-i18n="common.aria.logo" data-i18n-attr="aria-label">
         <img src="assets/media/logo.png" alt="IDSWIFT" height="40" />
       </a>
-      <nav aria-label="Primary">
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="services.html">Services</a>
-        <a class="btn" href="clients.html">Clients</a>
-        <a class="btn" href="contact.html" aria-current="page">Contact</a>
-        <a class="btn" href="privacy.html">Privacy</a>
-      </nav>
+      <div class="nav-actions">
+        <nav aria-label="Primary navigation" data-i18n="common.aria.nav" data-i18n-attr="aria-label">
+          <a class="btn" href="index.html" data-i18n="common.nav.home">Home</a>
+          <a class="btn" href="services.html" data-i18n="common.nav.services">Services</a>
+          <a class="btn" href="clients.html" data-i18n="common.nav.clients">Clients</a>
+          <a class="btn" href="contact.html" aria-current="page" data-i18n="common.nav.contact">Contact</a>
+          <a class="btn" href="privacy.html" data-i18n="common.nav.privacy">Privacy</a>
+        </nav>
+        <div class="lang-switcher" role="group" aria-label="Language selector" data-i18n="common.aria.languageSelector" data-i18n-attr="aria-label">
+          <button class="lang-btn" type="button" data-lang="en" data-i18n="common.languages.switch.en" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/en.svg" alt="" />
+          </button>
+          <button class="lang-btn" type="button" data-lang="es" data-i18n="common.languages.switch.es" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/es.svg" alt="" />
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-header" aria-label="Contact page header" data-i18n="contact.header.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h1>Contact</h1>
-        <p>Tell us about your properties, PMS stack, and guest experience goals. The IDSWIFT team replies within 24-48 business hours.</p>
+        <h1 data-i18n="contact.header.title">Contact</h1>
+        <p data-i18n="contact.header.intro">Tell us about your properties, PMS stack, and guest experience goals. The IDSWIFT team replies within 24-48 business hours.</p>
       </div>
     </section>
 
-    <section class="section" aria-label="Contact form">
+    <section class="section" aria-label="Contact form" data-i18n="common.forms.contact.aria" data-i18n-attr="aria-label">
       <div class="container contact">
         <div>
-          <h2>Start the conversation</h2>
-          <p class="small">Share a few details so we can prepare a relevant proposal.</p>
+          <h2 data-i18n="common.forms.contact.heading">Start the conversation</h2>
+          <p class="small" data-i18n="common.forms.contact.intro">Share a few details so we can prepare a relevant proposal.</p>
           <form id="contactForm" aria-describedby="formStatus" novalidate>
             <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+              <label for="name" data-i18n="common.forms.contact.labels.name">Name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name" required data-i18n="common.forms.contact.placeholders.name" data-i18n-attr="placeholder" />
             </div>
             <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@hotelgroup.com" required />
+              <label for="email" data-i18n="common.forms.contact.labels.email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@hotelgroup.com" required data-i18n="common.forms.contact.placeholders.email" data-i18n-attr="placeholder" />
             </div>
             <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="What would you like to achieve?" required></textarea>
+              <label for="message" data-i18n="common.forms.contact.labels.message">Message</label>
+              <textarea id="message" name="message" placeholder="What would you like to achieve?" required data-i18n="common.forms.contact.placeholders.message" data-i18n-attr="placeholder"></textarea>
             </div>
             <div>
-              <label class="small"><input type="checkbox" id="consent" required /> I have read and accept the <a href="privacy.html">privacy policy</a>.</label>
+              <label class="small">
+                <input type="checkbox" id="consent" required />
+                <span data-i18n="common.forms.contact.labels.consent">I have read and accept the <a href="privacy.html">privacy policy</a>.</span>
+              </label>
             </div>
             <input type="hidden" id="ACTION_URL" value="" />
-            <button class="btn primary" id="submitBtn" type="submit">Send</button>
+            <button class="btn primary" id="submitBtn" type="submit" data-i18n="common.forms.contact.actions.send">Send</button>
             <p id="formStatus" class="status" role="status" aria-live="polite"></p>
 
             <!-- Configure your submission endpoint:
@@ -68,13 +82,13 @@
           </form>
         </div>
         <aside>
-          <h2>Project checklist</h2>
-          <p class="small">Include these details if you already have them:</p>
+          <h2 data-i18n="common.forms.contact.checklist.heading">Project checklist</h2>
+          <p class="small" data-i18n="common.forms.contact.checklist.intro">Include these details if you already have them:</p>
           <ul class="small">
-            <li>Number of properties and expected seasonal volume.</li>
-            <li>PMS, channel manager, or CRM that we should integrate.</li>
-            <li>Current pain points during check-in or verification.</li>
-            <li>Desired go-live date and internal stakeholders.</li>
+            <li data-i18n="common.forms.contact.checklist.items.0">Number of properties and expected seasonal volume.</li>
+            <li data-i18n="common.forms.contact.checklist.items.1">PMS, channel manager, or CRM that we should integrate.</li>
+            <li data-i18n="common.forms.contact.checklist.items.2">Current pain points during check-in or verification.</li>
+            <li data-i18n="common.forms.contact.checklist.items.3">Desired go-live date and internal stakeholders.</li>
           </ul>
         </aside>
       </div>
@@ -82,14 +96,14 @@
   </main>
 
   <footer>
-    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html">Privacy</a>
+    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html" data-i18n="common.nav.privacy">Privacy</a>
   </footer>
 
-  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences">
-    <p>We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
+  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences" data-i18n="common.aria.cookieDialog" data-i18n-attr="aria-label">
+    <p data-i18n="common.cookie.message">We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
     <div class="actions">
-      <button id="cookie-accept" class="btn primary" type="button">Accept</button>
-      <a class="btn" href="privacy.html">Settings</a>
+      <button id="cookie-accept" class="btn primary" type="button" data-i18n="common.cookie.accept">Accept</button>
+      <a class="btn" href="privacy.html" data-i18n="common.cookie.settings">Settings</a>
     </div>
   </div>
 </body>

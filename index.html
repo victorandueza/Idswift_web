@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IDSWIFT | Hotel Check-in Automation</title>
-  <meta name="description" content="IDSWIFT automates hotel check-in with digital ID capture, secure payments, and PMS integrations." />
-  <meta property="og:title" content="IDSWIFT | Hotel Check-in Automation" />
-  <meta property="og:description" content="Accelerate arrivals with IDSWIFT's digital check-in platform." />
+  <title data-i18n="home.meta.title">IDSWIFT | Hotel Check-in Automation</title>
+  <meta name="description" content="IDSWIFT automates hotel check-in with digital ID capture, secure payments, and PMS integrations." data-i18n="home.meta.description" data-i18n-attr="content" />
+  <meta property="og:title" content="IDSWIFT | Hotel Check-in Automation" data-i18n="home.meta.ogTitle" data-i18n-attr="content" />
+  <meta property="og:description" content="Accelerate arrivals with IDSWIFT's digital check-in platform." data-i18n="home.meta.ogDescription" data-i18n-attr="content" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#fdf9f1" />
   <link rel="icon" href="favicon.ico" />
@@ -14,26 +14,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles/main.css" />
+  <script src="assets/scripts/i18n.js" defer></script>
   <script src="assets/scripts/main.js" defer></script>
 </head>
 <body class="page-home">
-  <header role="banner" aria-label="Header">
+  <header role="banner" aria-label="Header" data-i18n="common.aria.header" data-i18n-attr="aria-label">
     <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Go to home">
+      <a class="logo" href="index.html" aria-label="Go to home" data-i18n="common.aria.logo" data-i18n-attr="aria-label">
         <img src="assets/media/logo.png" alt="IDSWIFT" height="40" />
       </a>
-      <nav aria-label="Primary">
-        <a class="btn" href="index.html" aria-current="page">Home</a>
-        <a class="btn" href="services.html">Services</a>
-        <a class="btn" href="clients.html">Clients</a>
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn" href="privacy.html">Privacy</a>
-      </nav>
+      <div class="nav-actions">
+        <nav aria-label="Primary navigation" data-i18n="common.aria.nav" data-i18n-attr="aria-label">
+          <a class="btn" href="index.html" aria-current="page" data-i18n="common.nav.home">Home</a>
+          <a class="btn" href="services.html" data-i18n="common.nav.services">Services</a>
+          <a class="btn" href="clients.html" data-i18n="common.nav.clients">Clients</a>
+          <a class="btn" href="contact.html" data-i18n="common.nav.contact">Contact</a>
+          <a class="btn" href="privacy.html" data-i18n="common.nav.privacy">Privacy</a>
+        </nav>
+        <div class="lang-switcher" role="group" aria-label="Language selector" data-i18n="common.aria.languageSelector" data-i18n-attr="aria-label">
+          <button class="lang-btn" type="button" data-lang="en" data-i18n="common.languages.switch.en" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/en.svg" alt="" />
+          </button>
+          <button class="lang-btn" type="button" data-lang="es" data-i18n="common.languages.switch.es" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/es.svg" alt="" />
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero" aria-label="Hotel check-in hero">
+    <section class="hero" aria-label="Hotel check-in hero" data-i18n="home.hero.aria" data-i18n-attr="aria-label">
       <div class="hero-min">
         <div class="hero-media" aria-hidden="true">
           <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-poster.jpg">
@@ -42,34 +53,34 @@
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-wrap">
-          <p class="small">IDSWIFT Platform</p>
-          <h1 class="h1">Digital check-in that keeps your lobby in flow.</h1>
-          <p class="lead">Capture IDs, verify guests, secure payments, and sync every record to your PMS &mdash; all before they reach the front desk.</p>
+          <p class="small" data-i18n="home.hero.eyebrow">IDSWIFT Platform</p>
+          <h1 class="h1" data-i18n="home.hero.title">Digital check-in that keeps your lobby in flow.</h1>
+          <p class="lead" data-i18n="home.hero.lead">Capture IDs, verify guests, secure payments, and sync every record to your PMS &mdash; all before they reach the front desk.</p>
           <div class="cta">
-            <a class="btn primary" href="contact.html">Book a demo</a>
-            <a class="btn" href="services.html">See how it works</a>
+            <a class="btn primary" href="contact.html" data-i18n="home.hero.ctaPrimary">Book a demo</a>
+            <a class="btn" href="services.html" data-i18n="home.hero.ctaSecondary">See how it works</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="hero-teasers" aria-label="Highlights">
+    <section class="hero-teasers" aria-label="Highlights" data-i18n="home.highlights.aria" data-i18n-attr="aria-label">
       <div class="container">
         <div class="grid">
           <article class="card">
-            <h3>End-to-end automation</h3>
-            <p>Capture IDs, verify guests with OCR + AI, finalise payments, and sync everything with your PMS.</p>
-            <a class="btn" href="services.html">Explore services</a>
+            <h3 data-i18n="home.highlights.cards.0.title">End-to-end automation</h3>
+            <p data-i18n="home.highlights.cards.0.body">Capture IDs, verify guests with OCR + AI, finalise payments, and sync everything with your PMS.</p>
+            <a class="btn" href="services.html" data-i18n="home.highlights.cards.0.cta">Explore services</a>
           </article>
           <article class="card">
-            <h3>Guest-centric journeys</h3>
-            <p>Deliver mobile pre check-in, kiosk experiences, and timely notifications designed around traveller comfort.</p>
-            <a class="btn" href="clients.html">Read client results</a>
+            <h3 data-i18n="home.highlights.cards.1.title">Guest-centric journeys</h3>
+            <p data-i18n="home.highlights.cards.1.body">Deliver mobile pre check-in, kiosk experiences, and timely notifications designed around traveller comfort.</p>
+            <a class="btn" href="clients.html" data-i18n="home.highlights.cards.1.cta">Read client results</a>
           </article>
           <article class="card">
-            <h3>Compliance by design</h3>
-            <p>GDPR-ready workflows, auditable logs, and encrypted retention policies keep regulators and partners aligned.</p>
-            <a class="btn" href="privacy.html">Review policy</a>
+            <h3 data-i18n="home.highlights.cards.2.title">Compliance by design</h3>
+            <p data-i18n="home.highlights.cards.2.body">GDPR-ready workflows, auditable logs, and encrypted retention policies keep regulators and partners aligned.</p>
+            <a class="btn" href="privacy.html" data-i18n="home.highlights.cards.2.cta">Review policy</a>
           </article>
         </div>
       </div>
@@ -77,14 +88,14 @@
   </main>
 
   <footer>
-    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html">Privacy</a>
+    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html" data-i18n="common.nav.privacy">Privacy</a>
   </footer>
 
-  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences">
-    <p>We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
+  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences" data-i18n="common.aria.cookieDialog" data-i18n-attr="aria-label">
+    <p data-i18n="common.cookie.message">We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
     <div class="actions">
-      <button id="cookie-accept" class="btn primary" type="button">Accept</button>
-      <a class="btn" href="privacy.html">Settings</a>
+      <button id="cookie-accept" class="btn primary" type="button" data-i18n="common.cookie.accept">Accept</button>
+      <a class="btn" href="privacy.html" data-i18n="common.cookie.settings">Settings</a>
     </div>
   </div>
 </body>

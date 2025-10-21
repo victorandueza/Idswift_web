@@ -3,97 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IDSWIFT | Clients</title>
-  <meta name="description" content="See how hotel groups use IDSWIFT to accelerate arrivals, lift NPS, and keep compliance in check." />
+  <title data-i18n="clients.meta.title">IDSWIFT | Clients</title>
+  <meta name="description" content="See how hotel groups use IDSWIFT to accelerate arrivals, lift NPS, and keep compliance in check." data-i18n="clients.meta.description" data-i18n-attr="content" />
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/styles/main.css" />
+  <script src="assets/scripts/i18n.js" defer></script>
   <script src="assets/scripts/main.js" defer></script>
 </head>
 <body class="page-clients">
-  <header role="banner" aria-label="Header">
+  <header role="banner" aria-label="Header" data-i18n="common.aria.header" data-i18n-attr="aria-label">
     <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Go to home">
+      <a class="logo" href="index.html" aria-label="Go to home" data-i18n="common.aria.logo" data-i18n-attr="aria-label">
         <img src="assets/media/logo.png" alt="IDSWIFT" height="40" />
       </a>
-      <nav aria-label="Primary">
-        <a class="btn" href="index.html">Home</a>
-        <a class="btn" href="services.html">Services</a>
-        <a class="btn" href="clients.html" aria-current="page">Clients</a>
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn" href="privacy.html">Privacy</a>
-      </nav>
+      <div class="nav-actions">
+        <nav aria-label="Primary navigation" data-i18n="common.aria.nav" data-i18n-attr="aria-label">
+          <a class="btn" href="index.html" data-i18n="common.nav.home">Home</a>
+          <a class="btn" href="services.html" data-i18n="common.nav.services">Services</a>
+          <a class="btn" href="clients.html" aria-current="page" data-i18n="common.nav.clients">Clients</a>
+          <a class="btn" href="contact.html" data-i18n="common.nav.contact">Contact</a>
+          <a class="btn" href="privacy.html" data-i18n="common.nav.privacy">Privacy</a>
+        </nav>
+        <div class="lang-switcher" role="group" aria-label="Language selector" data-i18n="common.aria.languageSelector" data-i18n-attr="aria-label">
+          <button class="lang-btn" type="button" data-lang="en" data-i18n="common.languages.switch.en" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/en.svg" alt="" />
+          </button>
+          <button class="lang-btn" type="button" data-lang="es" data-i18n="common.languages.switch.es" data-i18n-attr="aria-label,title" aria-pressed="false">
+            <img src="assets/media/flags/es.svg" alt="" />
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-header" aria-label="Clients page header" data-i18n="clients.header.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h1>Clients</h1>
-        <p>Hospitality brands partnering with IDSWIFT to turn check-in into a fast, delightful moment for guests.</p>
+        <h1 data-i18n="clients.header.title">Clients</h1>
+        <p data-i18n="clients.header.intro">Hospitality brands partnering with IDSWIFT to turn check-in into a fast, delightful moment for guests.</p>
       </div>
     </section>
 
-    <section class="section" aria-label="Testimonials">
+    <section class="section" aria-label="Testimonials" data-i18n="clients.testimonials.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h2>What partners say</h2>
+        <h2 data-i18n="clients.testimonials.title">What partners say</h2>
         <div class="quotes">
           <blockquote>
-            <p>"They helped us launch in six weeks with a robust, scalable backend and polished kiosk UX."</p>
-            <cite class="small">- Operations Director, UrbanStay</cite>
+            <p data-i18n="clients.testimonials.quotes.0.quote">&ldquo;They helped us launch in six weeks with a robust, scalable backend and polished kiosk UX.&rdquo;</p>
+            <cite class="small" data-i18n="clients.testimonials.quotes.0.author">- Operations Director, UrbanStay</cite>
           </blockquote>
           <blockquote>
-            <p>"Excellent communication and a clear focus on the business metrics that matter to our guests."</p>
-            <cite class="small">- Product Lead, Coastline Hotels</cite>
+            <p data-i18n="clients.testimonials.quotes.1.quote">&ldquo;Excellent communication and a clear focus on the business metrics that matter to our guests.&rdquo;</p>
+            <cite class="small" data-i18n="clients.testimonials.quotes.1.author">- Product Lead, Coastline Hotels</cite>
           </blockquote>
           <blockquote>
-            <p>"We automated check-in and saved hundreds of staff hours every month while improving reviews."</p>
-            <cite class="small">- CEO, BoutiqueOne</cite>
+            <p data-i18n="clients.testimonials.quotes.2.quote">&ldquo;We automated check-in and saved hundreds of staff hours every month while improving reviews.&rdquo;</p>
+            <cite class="small" data-i18n="clients.testimonials.quotes.2.author">- CEO, BoutiqueOne</cite>
           </blockquote>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Impact metrics">
+    <section class="section" aria-label="Impact metrics" data-i18n="clients.impact.aria" data-i18n-attr="aria-label">
       <div class="container">
-        <h2>Impact snapshot</h2>
+        <h2 data-i18n="clients.impact.title">Impact snapshot</h2>
         <div class="grid">
           <article class="card">
-            <h3>80% faster arrivals</h3>
-            <p>Average time at reception dropped from 7 minutes to 80 seconds with mobile pre check-in.</p>
+            <h3 data-i18n="clients.impact.cards.0.title">80% faster arrivals</h3>
+            <p data-i18n="clients.impact.cards.0.body">Average time at reception dropped from 7 minutes to 80 seconds with mobile pre check-in.</p>
           </article>
           <article class="card">
-            <h3>+18 NPS points</h3>
-            <p>Guest satisfaction scores improved through clearer communication and digital room selection.</p>
+            <h3 data-i18n="clients.impact.cards.1.title">+18 NPS points</h3>
+            <p data-i18n="clients.impact.cards.1.body">Guest satisfaction scores improved through clearer communication and digital room selection.</p>
           </article>
           <article class="card">
-            <h3>60% fewer chargebacks</h3>
-            <p>Secure payments and ID verification reduced disputes thanks to traceable consent flows.</p>
+            <h3 data-i18n="clients.impact.cards.2.title">60% fewer chargebacks</h3>
+            <p data-i18n="clients.impact.cards.2.body">Secure payments and ID verification reduced disputes thanks to traceable consent flows.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-label="Call to action">
+    <section class="section" aria-label="Call to action" data-i18n="clients.cta.aria" data-i18n-attr="aria-label">
       <div class="container text-center">
-        <h2>Want a similar outcome?</h2>
-        <p class="lead">Share your targets and IDSWIFT will prepare a tailored plan with projections.</p>
-        <a class="btn primary" href="contact.html">Talk to the team</a>
+        <h2 data-i18n="clients.cta.title">Want a similar outcome?</h2>
+        <p class="lead" data-i18n="clients.cta.lead">Share your targets and IDSWIFT will prepare a tailored plan with projections.</p>
+        <a class="btn primary" href="contact.html" data-i18n="clients.cta.action">Talk to the team</a>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html">Privacy</a>
+    &copy; <span id="year"></span> IDSWIFT | <a href="privacy.html" data-i18n="common.nav.privacy">Privacy</a>
   </footer>
 
-  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences">
-    <p>We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
+  <div id="cookiebar" class="cookiebar" role="dialog" aria-live="polite" aria-label="Cookie preferences" data-i18n="common.aria.cookieDialog" data-i18n-attr="aria-label">
+    <p data-i18n="common.cookie.message">We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
     <div class="actions">
-      <button id="cookie-accept" class="btn primary" type="button">Accept</button>
-      <a class="btn" href="privacy.html">Settings</a>
+      <button id="cookie-accept" class="btn primary" type="button" data-i18n="common.cookie.accept">Accept</button>
+      <a class="btn" href="privacy.html" data-i18n="common.cookie.settings">Settings</a>
     </div>
   </div>
 </body>

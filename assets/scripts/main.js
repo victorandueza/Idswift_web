@@ -3,6 +3,9 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
 document.addEventListener('DOMContentLoaded', () => {
+  const i18n = window.I18N;
+  const translate = (key) => (i18n ? i18n.t(key) : key);
+
   const yearEl = $('#year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
@@ -17,11 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusEl = $('#formStatus');
   const submitBtn = $('#submitBtn');
 
-  const showStatus = (type, message) => {
+  const showStatus = (type, key) => {
     if (!statusEl) return;
     statusEl.className = type ? `status ${type}` : 'status';
-    statusEl.textContent = message || '';
+    if (key) {
+      statusEl.setAttribute('data-i18n', key);
+      statusEl.textContent = translate(key);
+    } else {
+      statusEl.removeAttribute('data-i18n');
+      statusEl.textContent = '';
+    }
   };
+
+  const setButtonState = (state) => {
+    if (!submitBtn) return;
+    const key = state === 'sending' ? 'common.forms.contact.actions.sending' : 'common.forms.contact.actions.send';
+    submitBtn.setAttribute('data-i18n', key);
+    submitBtn.textContent = translate(key);
+  };
+
+  setButtonState('idle');
 
   const validate = () => {
     const name = $('#name')?.value.trim() ?? '';
@@ -30,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const consent = $('#consent')?.checked ?? false;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name) return [false, 'Please enter your name.'];
-    if (!emailPattern.test(email)) return [false, 'Please enter a valid email address.'];
-    if (message.length < 10) return [false, 'Tell us a little more about your project (min. 10 characters).'];
-    if (!consent) return [false, 'You must accept the privacy policy.'];
+    if (!name) return [false, 'common.forms.contact.validation.name'];
+    if (!emailPattern.test(email)) return [false, 'common.forms.contact.validation.email'];
+    if (message.length < 10) return [false, 'common.forms.contact.validation.message'];
+    if (!consent) return [false, 'common.forms.contact.validation.consent'];
     return [true, ''];
   };
 
@@ -48,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const action = $('#ACTION_URL')?.value.trim();
       if (!action) {
-        showStatus('err', 'Configure the form ACTION_URL before going live.');
+        showStatus('err', 'common.forms.contact.status.configure');
         return;
       }
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      setButtonState('sending');
       showStatus('', '');
 
       try {
@@ -72,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        showStatus('ok', 'Thanks! We will be in touch very soon.');
+        showStatus('ok', 'common.forms.contact.status.success');
         form.reset();
       } catch (error) {
         console.error(error);
-        showStatus('err', 'Something went wrong. Try again in a few minutes.');
+        showStatus('err', 'common.forms.contact.status.error');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send';
+        setButtonState('idle');
       }
     });
   }
@@ -107,4 +125,36 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('keydown', handleFirstTab);
+
+  if (i18n) {
+    const updateButtonLang = (lang) => {
+      const currentKey = submitBtn?.getAttribute('data-i18n');
+      if (submitBtn && currentKey) {
+        submitBtn.textContent = translate(currentKey);
+      }
+      if (statusEl && statusEl.hasAttribute('data-i18n')) {
+        const key = statusEl.getAttribute('data-i18n');
+        if (key) {
+          statusEl.textContent = translate(key);
+        }
+      }
+      $$('.lang-btn').forEach((button) => {
+        const targetLang = button.getAttribute('data-lang');
+        const isActive = targetLang === lang;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+    };
+
+    $$('.lang-btn').forEach((button) => {
+      const targetLang = button.getAttribute('data-lang');
+      if (!targetLang) return;
+      button.addEventListener('click', () => {
+        i18n.setLanguage(targetLang);
+      });
+    });
+
+    i18n.onLanguageChange(updateButtonLang);
+    updateButtonLang(i18n.getLanguage());
+  }
 });
