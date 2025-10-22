@@ -73,9 +73,10 @@
             },
             status: {
               success: 'Thanks! We will be in touch very soon.',
-              error: 'Something went wrong. Try again in a few minutes.',
+              error: 'Something went wrong. Sorry for the inconvenience; please email the same details to info@idswiftsolutions.com.',
               configure: 'Configure the form ACTION_URL before going live.',
             },
+            contactInfo: 'Prefer to email us directly? Write to <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a>.',
             validation: {
               name: 'Please enter your name.',
               email: 'Please enter a valid email address.',
@@ -409,9 +410,10 @@
             },
             status: {
               success: '¡Gracias! Nos pondremos en contacto muy pronto.',
-              error: 'Algo salió mal. Inténtalo de nuevo en unos minutos.',
+              error: 'Algo salió mal. Disculpa las molestias; envía la misma información a info@idswiftsolutions.com.',
               configure: 'Configura el ACTION_URL del formulario antes de publicar.',
             },
+            contactInfo: '¿Prefieres escribirnos directamente? Envía un correo a <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a>.',
             validation: {
               name: 'Por favor, indica tu nombre.',
               email: 'Introduce un correo electrónico válido.',

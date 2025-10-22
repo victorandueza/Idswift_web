@@ -59,6 +59,7 @@
         <div>
           <h2 data-i18n="common.forms.contact.heading">Start the conversation</h2>
           <p class="small" data-i18n="common.forms.contact.intro">Share a few details so we can prepare a relevant proposal.</p>
+          <p class="small" data-i18n="common.forms.contact.contactInfo">Prefer to email us directly? Write to <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a>.</p>
           <form id="contactForm" aria-describedby="formStatus" novalidate>
             <div>
               <label for="name" data-i18n="common.forms.contact.labels.name">Name</label>
@@ -78,14 +79,12 @@
                 <span data-i18n="common.forms.contact.labels.consent">I have read and accept the <a href="privacy.html">privacy policy</a>.</span>
               </label>
             </div>
-            <input type="hidden" id="ACTION_URL" value="" />
+            <input type="hidden" id="ACTION_URL" value="/api/contact" />
             <button class="btn primary" id="submitBtn" type="submit" data-i18n="common.forms.contact.actions.send">Send</button>
             <p id="formStatus" class="status" role="status" aria-live="polite"></p>
 
-            <!-- Configure your submission endpoint:
-              Option without a backend (Formspree):
-              1) Create a form at https://formspree.io and copy the endpoint (e.g. https://formspree.io/f/abcdxyz)
-              2) Paste it into the ACTION_URL field above before going live. -->
+            <!-- Submission endpoint defaults to the Firebase Function deployed at /api/contact.
+              If you need to target a different backend, update the ACTION_URL value accordingly. -->
           </form>
         </div>
         <aside>

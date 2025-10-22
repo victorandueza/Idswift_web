@@ -14,6 +14,7 @@ USAGE
 TARGET_OVERRIDE=""
 BANNER_OVERRIDE=""
 PREVIEW=false
+FORCE_FUNCTIONS=false
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -27,6 +28,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --preview)
       PREVIEW=true
+      shift
+      ;;
+    --force-functions)
+      FORCE_FUNCTIONS=true
       shift
       ;;
     --help|-h)
@@ -75,6 +80,7 @@ fi
 
 echo "Firebase site: $FIREBASE_SITE"
 echo "Preview only: $PREVIEW"
+echo "Force functions: $FORCE_FUNCTIONS"
 
 copy_site(){
   rm -rf "$public_dir"/*
@@ -170,5 +176,10 @@ if ! command -v firebase >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "firebase deploy --only hosting:${FIREBASE_SITE}"
-firebase deploy --only hosting:"${FIREBASE_SITE}"
+deploy_targets="hosting:${FIREBASE_SITE}"
+if [[ "$FORCE_FUNCTIONS" == "true" ]]; then
+  deploy_targets+=",functions:contactSubmit"
+fi
+
+echo "firebase deploy --only ${deploy_targets}"
+firebase deploy --only "${deploy_targets}"

@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "source": "functions"
+  },
   "hosting": [
     {
       "site": "idswift",
@@ -34,7 +37,16 @@
             { "key": "Pragma", "value": "no-cache" },
             { "key": "Expires", "value": "0" }
           ]
+        },
+        {
+          "source": "/api/**",
+          "headers": [
+            { "key": "Cache-Control", "value": "no-store" }
+          ]
         }
+      ],
+      "rewrites": [
+        { "source": "/api/contact", "function": { "region": "europe-west1", "functionId": "contactSubmit" } }
       ]
     },
     {
@@ -54,6 +66,9 @@
             { "key": "Cache-Control", "value": "no-store" }
           ]
         }
+      ],
+      "rewrites": [
+        { "source": "/api/contact", "function": { "region": "europe-west1", "functionId": "contactSubmit" } }
       ]
     },
     {
@@ -73,6 +88,9 @@
             { "key": "Cache-Control", "value": "no-store" }
           ]
         }
+      ],
+      "rewrites": [
+        { "source": "/api/contact", "function": { "region": "europe-west1", "functionId": "contactSubmit" } }
       ]
     }
   ]
