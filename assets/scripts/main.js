@@ -19,6 +19,79 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = $('#contactForm');
   const statusEl = $('#formStatus');
   const submitBtn = $('#submitBtn');
+  const menuToggle = $('.menu-toggle');
+  const navActions = $('.nav-actions');
+  const menuToggleText = menuToggle ? $('.menu-toggle__text', menuToggle) : null;
+  const mobileMedia = typeof window.matchMedia === 'function' ? window.matchMedia('(max-width: 900px)') : null;
+
+  const isMobileView = () => {
+    if (mobileMedia) {
+      return mobileMedia.matches;
+    }
+    return window.innerWidth <= 900;
+  };
+
+  const setMenuState = (expanded) => {
+    if (!menuToggle || !navActions) return;
+    const mobile = isMobileView();
+    const nextExpanded = mobile && expanded;
+    menuToggle.setAttribute('aria-expanded', String(nextExpanded));
+    menuToggle.classList.toggle('is-active', nextExpanded);
+    navActions.classList.toggle('is-open', nextExpanded);
+    navActions.setAttribute('aria-hidden', mobile ? (nextExpanded ? 'false' : 'true') : 'false');
+
+    const labelKey = nextExpanded ? 'common.nav.menuToggle.close' : 'common.nav.menuToggle.open';
+    const ariaKey = nextExpanded ? 'common.nav.menuToggle.ariaClose' : 'common.nav.menuToggle.ariaOpen';
+
+    if (menuToggleText) {
+      menuToggleText.setAttribute('data-i18n', labelKey);
+      menuToggleText.textContent = translate(labelKey);
+    }
+
+    menuToggle.setAttribute('data-i18n', ariaKey);
+    menuToggle.setAttribute('aria-label', translate(ariaKey));
+  };
+
+  if (menuToggle && navActions) {
+    const closeMenu = () => setMenuState(false);
+
+    setMenuState(false);
+
+    menuToggle.addEventListener('click', () => {
+      if (!isMobileView()) return;
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      setMenuState(!expanded);
+    });
+
+    [...$$('.nav-actions a'), ...$$('.nav-actions .lang-btn')].forEach((element) => {
+      element.addEventListener('click', () => {
+        if (isMobileView()) {
+          closeMenu();
+        }
+      });
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+
+    const handleViewportChange = () => {
+      closeMenu();
+    };
+
+    if (mobileMedia) {
+      if (typeof mobileMedia.addEventListener === 'function') {
+        mobileMedia.addEventListener('change', handleViewportChange);
+      } else if (typeof mobileMedia.addListener === 'function') {
+        mobileMedia.addListener(handleViewportChange);
+      }
+    } else {
+      window.addEventListener('resize', handleViewportChange);
+    }
+  }
 
   const showStatus = (type, key) => {
     if (!statusEl) return;

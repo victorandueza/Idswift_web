@@ -23,8 +23,16 @@
       <a class="logo" href="index.html" aria-label="Go to home" data-i18n="common.aria.logo" data-i18n-attr="aria-label">
         <img src="assets/media/logo.png" alt="IDSWIFT" height="40" />
       </a>
-      <div class="nav-actions">
-        <nav aria-label="Primary navigation" data-i18n="common.aria.nav" data-i18n-attr="aria-label">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation menu" data-i18n="common.nav.menuToggle.ariaOpen" data-i18n-attr="aria-label">
+        <span class="menu-toggle__icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="menu-toggle__text" data-i18n="common.nav.menuToggle.open">Menu</span>
+      </button>
+      <div class="nav-actions" id="site-menu" aria-hidden="false">
+        <nav id="site-navigation" aria-label="Primary navigation" data-i18n="common.aria.nav" data-i18n-attr="aria-label">
           <a class="btn" href="#home" aria-current="page" data-i18n="common.nav.home">Home</a>
           <a class="btn" href="#services" data-i18n="common.nav.services">Services</a>
           <a class="btn" href="#clients" data-i18n="common.nav.clients">Clients</a>

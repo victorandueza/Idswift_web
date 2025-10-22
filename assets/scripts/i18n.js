@@ -15,6 +15,12 @@
           clients: 'Clients',
           contact: 'Contact',
           privacy: 'Privacy',
+          menuToggle: {
+            open: 'Menu',
+            close: 'Close',
+            ariaOpen: 'Open navigation menu',
+            ariaClose: 'Close navigation menu',
+          },
         },
         languages: {
           en: 'English',
@@ -345,6 +351,12 @@
           clients: 'Clientes',
           contact: 'Contacto',
           privacy: 'Privacidad',
+          menuToggle: {
+            open: 'Menú',
+            close: 'Cerrar',
+            ariaOpen: 'Abrir menú de navegación',
+            ariaClose: 'Cerrar menú de navegación',
+          },
         },
         languages: {
           en: 'Inglés',
