@@ -43,6 +43,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body.page-home {
+  padding-top: 0;
+}
+
+body.page-home main {
+  scroll-snap-type: y proximity;
+  scroll-padding-top: var(--header-height);
+}
+
+body.page-home section {
+  scroll-snap-align: start;
+}
+
 a {
   color: var(--brand);
   text-decoration: none;
@@ -265,9 +278,11 @@ header {
 
 .hero-min {
   position: relative;
-  min-height: 85vh;
+  min-height: clamp(560px, 78vh, 840px);
   display: grid;
-  place-items: center;
+  justify-items: center;
+  align-content: start;
+  padding: clamp(48px, 12vh, 112px) 24px clamp(32px, 8vh, 88px);
   isolation: isolate;
   overflow: hidden;
 }
@@ -301,9 +316,10 @@ header {
   position: relative;
   z-index: 1;
   width: min(100%, var(--max));
-  padding: 80px 24px;
+  padding: 0;
   display: grid;
   gap: 18px;
+  justify-items: start;
 }
 
 .h1 {
@@ -372,6 +388,18 @@ header {
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-min {
+    min-height: auto;
+    padding: 64px 24px 48px;
+  }
+
+  .hero-teasers {
+    margin-top: -72px;
+    padding: 40px 24px 56px;
   }
 }
 
@@ -621,7 +649,10 @@ footer {
 }
 
 .hero-teasers {
-  padding: 40px 24px 80px;
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-168px, -18vh, -72px);
+  padding: clamp(40px, 7vw, 64px) 24px 80px;
 }
 
 .hero-teasers .grid {
@@ -646,8 +677,17 @@ footer {
     padding: 48px 20px;
   }
 
+  .hero-min {
+    padding: 48px 20px 40px;
+  }
+
   .hero-wrap {
-    padding: 64px 20px;
+    padding: 0;
+  }
+
+  .hero-teasers {
+    margin-top: 0;
+    padding: 48px 20px 64px;
   }
 
   .nav-actions {
