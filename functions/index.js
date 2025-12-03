@@ -32,6 +32,8 @@ const encodeMessage = (content) =>
   Buffer.from(content, 'utf8').toString('base64')
     .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
 
+const wrapBase64 = (input) => input.replace(/.{1,76}(?=.)/g, '$&\r\n');
+
 const buildEmail = ({ to, from, replyTo, subject, text }) => {
   const headers = [
     `From: ${from}`,
@@ -39,14 +41,47 @@ const buildEmail = ({ to, from, replyTo, subject, text }) => {
     replyTo ? `Reply-To: ${replyTo}` : null,
     `Subject: ${subject}`,
     'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset="UTF-8"',
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: base64',
   ].filter(Boolean).join('\r\n');
-  return encodeMessage(`${headers}\r\n\r\n${text}`);
+  const normalizedText = String(text ?? '').replace(/\r?\n/g, '\r\n');
+  const base64Body = Buffer.from(normalizedText, 'utf8').toString('base64');
+  const body = wrapBase64(base64Body);
+  const finalBody = body.endsWith('\r\n') || body.length === 0 ? body : `${body}\r\n`;
+  return encodeMessage(`${headers}\r\n\r\n${finalBody}`);
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Evita inyección de cabeceras en Reply-To
 const safeHeader = (s) => String(s || '').replace(/[\r\n]/g, ' ').replace(/[<>]/g, '');
+
+const sanitizeHeaderText = (s) => String(s || '').replace(/[\r\n]+/g, ' ').trim();
+const needsEncodedWord = (s) => /[^\u0020-\u007E]/.test(s);
+const encodeHeaderWord = (s) => `=?UTF-8?B?${Buffer.from(s, 'utf8').toString('base64')}?=`;
+
+const formatDisplayName = (name) => {
+  const clean = safeHeader(name).trim();
+  if (!clean) return '';
+  if (needsEncodedWord(clean)) {
+    return encodeHeaderWord(clean);
+  }
+  if (/[",]/.test(clean)) {
+    return `"${clean.replace(/"/g, '\\"')}"`;
+  }
+  return clean;
+};
+
+const formatAddressHeader = (name, email) => {
+  const cleanEmail = safeHeader(email);
+  if (!cleanEmail) return '';
+  const displayName = formatDisplayName(name);
+  return displayName ? `${displayName} <${cleanEmail}>` : cleanEmail;
+};
+
+const prepareSubject = (subject) => {
+  const clean = sanitizeHeaderText(subject);
+  return needsEncodedWord(clean) ? encodeHeaderWord(clean) : clean;
+};
 
 exports.contactSubmit = onRequest({
   region: 'europe-west1',
@@ -89,12 +124,17 @@ exports.contactSubmit = onRequest({
       oauth2.setCredentials({ refresh_token: GMAIL_REFRESH_TOKEN.value() });
       const gmail = google.gmail({ version: 'v1', auth: oauth2 });
 
+      const sender = formatAddressHeader('IDS Contact', 'info@idswiftsolutions.com');
+      const replyToHeader = formatAddressHeader(trimmedName, trimmedEmail);
+      const subject = prepareSubject(`New contact from ${trimmedName}`);
+      const textBody = `${trimmedMessage}\n\n—\nName: ${trimmedName}\nEmail: ${trimmedEmail}`;
+
       const raw = buildEmail({
         to: 'info@idswiftsolutions.com',
-        from: 'info@idswiftsolutions.com',
-        replyTo: `${safeHeader(trimmedName)} <${safeHeader(trimmedEmail)}>`,
-        subject: `New contact from ${trimmedName}`,
-        text: `${trimmedMessage}\n\n—\nName: ${trimmedName}\nEmail: ${trimmedEmail}`,
+        from: sender || 'info@idswiftsolutions.com',
+        replyTo: replyToHeader,
+        subject,
+        text: textBody,
       });
 
       await gmail.users.messages.send({ userId: 'me', requestBody: { raw } });

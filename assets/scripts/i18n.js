@@ -89,7 +89,7 @@
       home: {
         meta: {
           title: 'IDSWIFT | Hotel Check-in Automation',
-          description: "IDSWIFT automates hotel check-in with digital ID capture, secure payments, and PMS integrations.",
+          description: 'IDSWIFT automates hotel check-in with digital ID capture, compliance-ready flows, and PMS integrations.',
           ogTitle: 'IDSWIFT | Hotel Check-in Automation',
           ogDescription: "Accelerate arrivals with IDSWIFT's digital check-in platform.",
         },
@@ -97,7 +97,7 @@
           aria: 'Hotel check-in hero',
           eyebrow: 'IDSWIFT Platform',
           title: 'Digital check-in that keeps your lobby in flow.',
-          lead: 'Capture IDs, verify guests, secure payments, and sync every record to your PMS &mdash; all before they reach the front desk.',
+          lead: 'Capture IDs, verify guests, and sync every record to your PMS &mdash; all before they reach the front desk.',
           ctaPrimary: 'Book a demo',
           ctaSecondary: 'See how it works',
         },
@@ -106,13 +106,13 @@
           cards: [
             {
               title: 'End-to-end automation',
-              body: 'Capture IDs, verify guests with OCR + AI, finalise payments, and sync everything with your PMS.',
+              body: 'Capture IDs, verify guests with OCR + AI, and sync everything with your PMS.',
               cta: 'Explore services',
             },
             {
               title: 'Guest-centric journeys',
               body: 'Deliver mobile pre check-in, kiosk experiences, and timely notifications designed around traveller comfort.',
-              cta: 'Read client results',
+              cta: 'Explore services',
             },
             {
               title: 'Compliance by design',
@@ -139,33 +139,37 @@
           cards: [
             {
               title: 'Web & Mobile Experiences',
-              body: 'Landing pages, admin portals, mobile-first pre check-in flows, and kiosk interfaces built for conversion.',
+              body: 'Landing pages, admin portals, pre check-in flows, and kiosk interfaces for registration cards and invoices.',
             },
             {
               title: 'Integrations & Cloud',
-              body: 'REST + SOAP PMS integrations, payment gateways, identity providers, and real-time analytics pipelines.',
+              body: 'REST + SOAP PMS integrations, identity providers, and real-time analytics pipelines.',
             },
             {
               title: 'Automation & AI',
-              body: 'OCR and face match, fraud rules, smart routing, document storage, and proactive guest communications.',
+              body: 'OCR and face match, smart routing, document storage, and proactive guest communications.',
             },
           ],
         },
         engagement: {
           aria: 'Engagement model',
-          title: 'How collaboration works',
+          title: 'Work phases',
           steps: [
             {
-              title: '01. Discovery',
-              body: 'Process mapping workshops to identify bottlenecks, regulatory constraints, and integration needs.',
+              title: '01. Operational flow consulting',
+              body: 'Front-desk process review to map check-in, security, and compliance touchpoints.',
             },
             {
-              title: '02. Delivery',
-              body: 'Agile delivery with weekly demos, shared backlog, and traceable documentation across environments.',
+              title: '02. Technical rollout & API integrations',
+              body: 'Environment setup, PMS + IDP integrations, and configuration of pre check-in flows.',
             },
             {
-              title: '03. Growth',
-              body: 'Ongoing optimisation, conversion experiments, SLA-backed support, and training for front-desk teams.',
+              title: '03. Joint certification (UAT)',
+              body: 'Test cases, data validation, and acceptance checkpoints with reception teams.',
+            },
+            {
+              title: '04. Go-live support',
+              body: 'Hypercare during launch with training, metrics tracking, and incident response.',
             },
           ],
         },
@@ -174,6 +178,8 @@
           title: 'Ready to upgrade guest arrivals?',
           lead: 'Let IDSWIFT tailor a roadmap for your PMS stack, properties, and compliance requirements.',
           action: 'Start a project',
+          secondaryTitle: 'Need to align teams?',
+          secondaryLead: 'Share your operational constraints and we will draft a realistic rollout plan.',
         },
       },
       clients: {
@@ -217,8 +223,8 @@
               body: 'Guest satisfaction scores improved through clearer communication and digital room selection.',
             },
             {
-              title: '60% fewer chargebacks',
-              body: 'Secure payments and ID verification reduced disputes thanks to traceable consent flows.',
+              title: 'Audit-ready records',
+              body: 'Signed registration cards and invoices remain aligned with local regulations and audits.',
             },
           ],
         },
@@ -259,7 +265,7 @@
               sections: [
                 {
                   title: 'Data controller',
-                  body: 'IDSWIFT Labs, S.L. - VAT ESB12345678 - Calle Ejemplo 12, 28000 Madrid (Spain). Email: <a href="mailto:privacy@idswift.com">privacy@idswift.com</a>',
+                  body: 'Termopolis Ecotech S.L. - VAT B757048330 - Av Carlos Cano 21, 29680, Estepona, Spain. Email: <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a>',
                 },
                 {
                   title: 'Purpose',
@@ -287,7 +293,7 @@
                 },
                 {
                   title: 'Rights',
-                  body: 'You can access, rectify, delete, oppose, restrict, or port your data. Contact <a href="mailto:privacy@idswift.com">privacy@idswift.com</a> or submit a claim to the Spanish DPA (AEPD).',
+                  body: 'You can access, rectify, delete, oppose, restrict, or port your data. Contact <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a> or submit a claim to the Spanish DPA (AEPD).',
                 },
                 {
                   title: 'Cookies',
@@ -303,7 +309,7 @@
                 },
                 {
                   title: 'DPO contact',
-                  body: 'If we appoint a Data Protection Officer, you can reach them at <a href="mailto:dpo@idswift.com">dpo@idswift.com</a>.',
+                  body: 'If we appoint a Data Protection Officer, you can reach them at <a href="mailto:dpo@idswiftsolutions.com">dpo@idswiftsolutions.com</a>.',
                 },
                 {
                   title: 'Updates',
@@ -426,7 +432,7 @@
       home: {
         meta: {
           title: 'IDSWIFT | Automatización del check-in hotelero',
-          description: 'IDSWIFT automatiza el check-in del hotel con captura digital de documentos, pagos seguros e integraciones con el PMS.',
+          description: 'IDSWIFT automatiza el check-in del hotel con captura digital de documentos, flujos de cumplimiento e integraciones con el PMS.',
           ogTitle: 'IDSWIFT | Automatización del check-in hotelero',
           ogDescription: 'Acelera las llegadas con la plataforma de check-in digital de IDSWIFT.',
         },
@@ -434,7 +440,7 @@
           aria: 'Hero de check-in hotelero',
           eyebrow: 'Plataforma IDSWIFT',
           title: 'Check-in digital que mantiene tu lobby en movimiento.',
-          lead: 'Captura documentos, verifica huéspedes, asegura pagos y sincroniza cada registro con el PMS antes de que lleguen a recepción.',
+          lead: 'Captura documentos, verifica huéspedes y sincroniza cada registro con el PMS antes de que lleguen a recepción.',
           ctaPrimary: 'Solicitar una demo',
           ctaSecondary: 'Ver cómo funciona',
         },
@@ -443,13 +449,13 @@
           cards: [
             {
               title: 'Automatización integral',
-              body: 'Captura documentos, verifica huéspedes con OCR + IA, finaliza pagos y sincroniza todo con tu PMS.',
+              body: 'Captura documentos, verifica huéspedes con OCR + IA y sincroniza todo con tu PMS.',
               cta: 'Explorar servicios',
             },
             {
               title: 'Experiencias centradas en el huésped',
               body: 'Ofrece pre check-in móvil, kioscos y notificaciones oportunas diseñadas para el confort del viajero.',
-              cta: 'Ver resultados de clientes',
+              cta: 'Explorar servicios',
             },
             {
               title: 'Cumplimiento por diseño',
@@ -476,33 +482,37 @@
           cards: [
             {
               title: 'Experiencias web y móvil',
-              body: 'Landing pages, portales de administración, flujos de pre check-in mobile-first y kioscos optimizados para convertir.',
+              body: 'Landing pages, portales de administración, flujos de pre check-in y kioscos optimizados para registration card y facturas.',
             },
             {
               title: 'Integraciones y cloud',
-              body: 'Integraciones REST + SOAP con PMS, pasarelas de pago, proveedores de identidad y analítica en tiempo real.',
+              body: 'Integraciones REST + SOAP con PMS, proveedores de identidad y analítica en tiempo real.',
             },
             {
               title: 'Automatización e IA',
-              body: 'OCR y comparación facial, reglas antifraude, ruteo inteligente, archivo documental y comunicaciones proactivas.',
+              body: 'OCR y comparación facial, ruteo inteligente, archivo documental y comunicaciones proactivas.',
             },
           ],
         },
         engagement: {
           aria: 'Modelo de colaboración',
-          title: 'Cómo colaboramos',
+          title: 'Fases de trabajo',
           steps: [
             {
-              title: '01. Descubrimiento',
-              body: 'Workshops de procesos para identificar cuellos de botella, requisitos normativos y necesidades de integración.',
+              title: '01. Consultoría de flujos operativos (Recepción)',
+              body: 'Revisión de procesos de front desk para mapear check-in, seguridad y cumplimiento.',
             },
             {
-              title: '02. Entrega',
-              body: 'Entrega ágil con demos semanales, backlog compartido y documentación trazable en todos los entornos.',
+              title: '02. Despliegue técnico e integraciones API',
+              body: 'Configuración de entornos, integraciones con PMS e IDP y ajuste de flujos de pre check-in.',
             },
             {
-              title: '03. Crecimiento',
-              body: 'Optimización continua, experimentos de conversión, soporte con SLA y formación para equipos de recepción.',
+              title: '03. Certificación conjunta (UAT)',
+              body: 'Casos de prueba, validación de datos y checkpoints de aceptación con equipos de recepción.',
+            },
+            {
+              title: '04. Soporte al arranque',
+              body: 'Acompañamiento en el go-live con formación, seguimiento de métricas y respuesta a incidencias.',
             },
           ],
         },
@@ -511,6 +521,8 @@
           title: '¿Listo para mejorar las llegadas?',
           lead: 'IDSWIFT prepara una hoja de ruta alineada con tu stack PMS, propiedades y requisitos de cumplimiento.',
           action: 'Iniciar un proyecto',
+          secondaryTitle: '¿Necesitas alinear equipos?',
+          secondaryLead: 'Comparte tus restricciones operativas y prepararemos un plan de despliegue realista.',
         },
       },
       clients: {
@@ -554,8 +566,8 @@
               body: 'Las encuestas de satisfacción mejoraron gracias a una comunicación más clara y selección digital de habitación.',
             },
             {
-              title: '60% menos contracargos',
-              body: 'Pagos seguros y verificación documental redujeron disputas gracias a flujos de consentimiento trazables.',
+              title: 'Expedientes listos para auditoría',
+              body: 'Registration cards y facturas firmadas se conservan alineadas con la normativa local y auditorías.',
             },
           ],
         },
@@ -596,7 +608,7 @@
               sections: [
                 {
                   title: 'Responsable del tratamiento',
-                  body: 'IDSWIFT Labs, S.L. - CIF ESB12345678 - Calle Ejemplo 12, 28000 Madrid (España). Correo: <a href="mailto:privacy@idswift.com">privacy@idswift.com</a>',
+                  body: 'Termopolis Ecotech S.L. - CIF B757048330 - Av Carlos Cano 21, 29680, Estepona (España). Correo: <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a>',
                 },
                 {
                   title: 'Finalidad',
@@ -624,7 +636,7 @@
                 },
                 {
                   title: 'Derechos',
-                  body: 'Puedes acceder, rectificar, suprimir, oponerte, limitar u obtener una copia portátil de tus datos. Escribe a <a href="mailto:privacy@idswift.com">privacy@idswift.com</a> o presenta una reclamación ante la AEPD.',
+                  body: 'Puedes acceder, rectificar, suprimir, oponerte, limitar u obtener una copia portátil de tus datos. Escribe a <a href="mailto:info@idswiftsolutions.com">info@idswiftsolutions.com</a> o presenta una reclamación ante la AEPD.',
                 },
                 {
                   title: 'Cookies',
@@ -640,7 +652,7 @@
                 },
                 {
                   title: 'Contacto del DPO',
-                  body: 'Si nombramos un Delegado de Protección de Datos, podrás contactar en <a href="mailto:dpo@idswift.com">dpo@idswift.com</a>.',
+                  body: 'Si nombramos un Delegado de Protección de Datos, podrás contactar en <a href="mailto:dpo@idswiftsolutions.com">dpo@idswiftsolutions.com</a>.',
                 },
                 {
                   title: 'Actualizaciones',

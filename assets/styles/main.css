@@ -185,8 +185,7 @@ header {
 }
 
 #home,
-#services,
-#clients {
+#services {
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
