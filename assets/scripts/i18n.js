@@ -94,10 +94,10 @@
       },
       home: {
         meta: {
-          title: 'IDSWIFT | Hotel Check-in Automation',
-          description: 'IDSWIFT automates hotel check-in with digital ID capture, compliance-ready flows, and PMS integrations.',
-          ogTitle: 'IDSWIFT | Hotel Check-in Automation',
-          ogDescription: "Accelerate arrivals with IDSWIFT's digital check-in platform.",
+          title: 'IDSWIFT | Hotel Check-in & Guest ID Automation in Spain & Europe',
+          description: 'IDSWIFT delivers digital hotel check-in, ID capture, and compliance-ready guest verification for receptions in Spain and Europe.',
+          ogTitle: 'IDSWIFT | Hotel Check-in & Guest ID Automation in Spain & Europe',
+          ogDescription: "Accelerate arrivals with IDSWIFT's digital check-in, ID verification, and PMS integrations for Spain and Europe.",
         },
         hero: {
           aria: 'Hotel check-in hero',
@@ -131,7 +131,7 @@
       services: {
         meta: {
           title: 'IDSWIFT | Services',
-          description: 'Discover IDSWIFT services: pre check-in journeys, PMS integrations, automation, and hospitality compliance.',
+          description: 'Discover IDSWIFT services for Spain and Europe: pre check-in journeys, PMS integrations, automation, and hospitality compliance.',
         },
         header: {
           aria: 'Services page header',
@@ -191,7 +191,7 @@
       clients: {
         meta: {
           title: 'IDSWIFT | Clients',
-          description: 'See how hotel groups use IDSWIFT to accelerate arrivals, lift NPS, and keep compliance in check.',
+          description: 'See how hotel groups in Spain and Europe use IDSWIFT to accelerate arrivals, lift NPS, and keep compliance in check.',
         },
         header: {
           aria: 'Clients page header',
@@ -244,7 +244,7 @@
       contact: {
         meta: {
           title: 'IDSWIFT | Contact',
-          description: 'Contact the IDSWIFT team to scope your hotel check-in automation roadmap.',
+          description: 'Talk with IDSWIFT about hotel check-in automation, guest ID verification, and PMS integrations for Spain and Europe.',
         },
         header: {
           aria: 'Contact page header',
@@ -255,7 +255,7 @@
       privacy: {
         meta: {
           title: 'IDSWIFT | Privacy',
-          description: "Review IDSWIFT's privacy notice, data processing details, and cookie preferences.",
+          description: "Read IDSWIFT's GDPR-ready privacy notice for hotel check-in automation, data processing, and cookies.",
         },
         header: {
           aria: 'Privacy page header',
@@ -443,10 +443,10 @@
       },
       home: {
         meta: {
-          title: 'IDSWIFT | Automatización del check-in hotelero',
-          description: 'IDSWIFT automatiza el check-in del hotel con captura digital de documentos, flujos de cumplimiento e integraciones con el PMS.',
-          ogTitle: 'IDSWIFT | Automatización del check-in hotelero',
-          ogDescription: 'Acelera las llegadas con la plataforma de check-in digital de IDSWIFT.',
+          title: 'IDSWIFT | Check-in digital y verificación de huéspedes en España y Europa',
+          description: 'IDSWIFT digitaliza el check-in hotelero con captura de DNI/pasaporte, verificación y flujos de cumplimiento para recepciones en España y Europa.',
+          ogTitle: 'IDSWIFT | Check-in digital y verificación de huéspedes en España y Europa',
+          ogDescription: 'Acelera las llegadas con check-in digital, verificación de identidad y conectores PMS pensados para hoteles en España y Europa.',
         },
         hero: {
           aria: 'Hero de check-in hotelero',
@@ -480,7 +480,7 @@
       services: {
         meta: {
           title: 'IDSWIFT | Servicios',
-          description: 'Descubre los servicios de IDSWIFT: pre check-in, integraciones con PMS, automatización y cumplimiento para hospitality.',
+          description: 'Servicios IDSWIFT para España y Europa: pre check-in, integraciones con PMS, automatización y cumplimiento para hospitality.',
         },
         header: {
           aria: 'Encabezado de servicios',
@@ -540,7 +540,7 @@
       clients: {
         meta: {
           title: 'IDSWIFT | Clientes',
-          description: 'Descubre cómo los grupos hoteleros usan IDSWIFT para acelerar las llegadas, elevar el NPS y asegurar el cumplimiento.',
+          description: 'Descubre cómo grupos hoteleros en España y Europa usan IDSWIFT para acelerar llegadas, elevar NPS y asegurar el cumplimiento.',
         },
         header: {
           aria: 'Encabezado de clientes',
@@ -593,7 +593,7 @@
       contact: {
         meta: {
           title: 'IDSWIFT | Contacto',
-          description: 'Contacta con el equipo de IDSWIFT para definir tu hoja de ruta de automatización del check-in hotelero.',
+          description: 'Habla con IDSWIFT sobre automatización del check-in, verificación de huéspedes y conectores PMS para hoteles en España y Europa.',
         },
         header: {
           aria: 'Encabezado de contacto',
@@ -604,7 +604,7 @@
       privacy: {
         meta: {
           title: 'IDSWIFT | Privacidad',
-          description: 'Consulta el aviso de privacidad de IDSWIFT, el tratamiento de datos y las preferencias de cookies.',
+          description: 'Consulta el aviso de privacidad de IDSWIFT (cumplimiento GDPR), el tratamiento de datos y las preferencias de cookies.',
         },
         header: {
           aria: 'Encabezado de privacidad',
@@ -706,6 +706,22 @@
   let currentLang = fallbackLang;
   const listeners = new Set();
 
+  const getQueryLanguage = () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const queryLang = params.get('lang') || params.get('hl');
+      if (queryLang) {
+        const candidate = queryLang.slice(0, 2).toLowerCase();
+        if (supported.includes(candidate)) {
+          return candidate;
+        }
+      }
+    } catch (error) {
+      console.warn('Unable to read language from URL', error);
+    }
+    return null;
+  };
+
   const getNestedValue = (lang, key) => {
     const dictionary = translations[lang];
     if (!dictionary) return undefined;
@@ -769,6 +785,10 @@
   const isSupported = (lang) => supported.includes(lang);
 
   const chooseInitialLanguage = () => {
+    const urlLang = getQueryLanguage();
+    if (urlLang) {
+      return urlLang;
+    }
     const stored = localStorage.getItem(storageKey);
     if (stored && isSupported(stored)) {
       return stored;
