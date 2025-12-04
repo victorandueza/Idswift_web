@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navActions = $('.nav-actions');
   const menuToggleText = menuToggle ? $('.menu-toggle__text', menuToggle) : null;
   const mobileMedia = typeof window.matchMedia === 'function' ? window.matchMedia('(max-width: 900px)') : null;
+  const heroVideo = $('.hero-video');
 
   const isMobileView = () => {
     if (mobileMedia) {
@@ -198,6 +199,114 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('keydown', handleFirstTab);
+
+  if (heroVideo) {
+    const attachMidRestart = () => {
+      const duration = heroVideo.duration;
+      if (!duration || Number.isNaN(duration)) return;
+      const halfway = duration / 2;
+      let resetting = false;
+      heroVideo.addEventListener('timeupdate', () => {
+        if (resetting) return;
+        if (heroVideo.currentTime >= halfway) {
+          resetting = true;
+          heroVideo.pause();
+          heroVideo.currentTime = 0;
+          heroVideo.play().catch(() => {});
+          resetting = false;
+        }
+      });
+    };
+
+    if (heroVideo.readyState >= 1) {
+      attachMidRestart();
+    } else {
+      heroVideo.addEventListener('loadedmetadata', attachMidRestart, { once: true });
+    }
+  }
+
+  const navLinks = $$('#site-navigation a[href^="#"]');
+  const scrollToSection = (id, block = 'start', offset = 0) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
+    const targetY = rect.top + window.pageYOffset;
+    const finalY = block === 'center' ? targetY + rect.height / 2 - window.innerHeight / 2 - offset : targetY - offset;
+    window.scrollTo({ top: Math.max(finalY, 0), behavior: 'smooth' });
+  };
+
+  const setActiveNav = (targetId) => {
+    if (!navLinks.length) return;
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      const hash = href.startsWith('#') ? href.slice(1) : '';
+      const isActive = hash && hash === targetId;
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  if (navLinks.length) {
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href') || '';
+        if (href.startsWith('#')) {
+          event.preventDefault();
+          const id = href.slice(1);
+          const block = id === 'services' ? 'center' : 'start';
+          const offset = id === 'services' ? 50 : 0;
+          scrollToSection(id, block, offset);
+          setActiveNav(id);
+          history.replaceState(null, '', `#${id}`);
+        }
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      const sectionMap = new Map();
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (!href.startsWith('#')) return;
+        const id = href.slice(1);
+        const section = document.getElementById(id);
+        if (section) {
+          sectionMap.set(id, section);
+        }
+      });
+
+      if (sectionMap.size) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+            if (visible.length) {
+              setActiveNav(visible[0].target.id);
+            }
+          },
+          {
+            rootMargin: '-40% 0px -40% 0px',
+            threshold: [0.25, 0.5, 0.75, 1],
+          }
+        );
+
+        sectionMap.forEach((section) => observer.observe(section));
+      }
+    }
+
+    const hashId = window.location.hash ? window.location.hash.slice(1) : '';
+    if (hashId) {
+      setActiveNav(hashId);
+    } else {
+      const firstHref = navLinks[0].getAttribute('href') || '';
+      if (firstHref.startsWith('#')) {
+        setActiveNav(firstHref.slice(1));
+      }
+    }
+  }
 
   if (i18n) {
     const updateButtonLang = (lang) => {
