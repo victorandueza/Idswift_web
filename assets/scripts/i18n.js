@@ -40,6 +40,12 @@
           message: 'We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.',
           accept: 'Accept',
           settings: 'Settings',
+          analyticsTitle: 'Analytics cookies',
+          analyticsBody: 'Help us understand usage so we can improve flows. Disabled unless you opt in.',
+          analyticsToggle: 'Toggle analytics cookies',
+          save: 'Save preferences',
+          cancel: 'Cancel',
+          notice: 'Privacy notice',
         },
         forms: {
           contact: {
@@ -383,6 +389,12 @@
           message: 'Usamos cookies para personalizar el contenido y medir el tráfico. Más información en el <a href="privacy.html">aviso de privacidad</a>.',
           accept: 'Aceptar',
           settings: 'Configuración',
+          analyticsTitle: 'Cookies analíticas',
+          analyticsBody: 'Nos ayudan a entender el uso y mejorar los flujos. Desactivadas salvo que optes por ellas.',
+          analyticsToggle: 'Activar o desactivar cookies analíticas',
+          save: 'Guardar preferencias',
+          cancel: 'Cancelar',
+          notice: 'Aviso de privacidad',
         },
         forms: {
           contact: {

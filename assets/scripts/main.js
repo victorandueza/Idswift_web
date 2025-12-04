@@ -178,17 +178,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cookieBar = $('#cookiebar');
   const acceptCookies = $('#cookie-accept');
+  const settingsCookies = $('#cookie-settings');
+  const settingsPanel = $('#cookie-settings-panel');
+  const analyticsToggle = $('#cookie-analytics');
+  const saveCookies = $('#cookie-save');
+  const cancelCookies = $('#cookie-cancel');
+
+  const parseConsent = (value) => {
+    if (!value) return null;
+    if (value === 'true') return { analytics: true };
+    try {
+      const parsed = JSON.parse(value);
+      if (parsed && typeof parsed === 'object') return parsed;
+    } catch (error) {
+      console.warn('Invalid consent value', error);
+    }
+    return null;
+  };
+
+  const storeConsent = (value) => {
+    localStorage.setItem('cookieConsent', JSON.stringify(value));
+  };
 
   if (cookieBar && acceptCookies) {
-    const consent = localStorage.getItem('cookieConsent');
+    const consent = parseConsent(localStorage.getItem('cookieConsent'));
+
     if (!consent) {
       cookieBar.classList.add('show');
+    } else if (analyticsToggle) {
+      analyticsToggle.checked = Boolean(consent.analytics);
     }
 
+    const openSettings = () => {
+      cookieBar.classList.add('show', 'is-configuring');
+      if (settingsPanel) settingsPanel.hidden = false;
+      if (analyticsToggle) {
+        const latestConsent = parseConsent(localStorage.getItem('cookieConsent'));
+        analyticsToggle.checked = latestConsent ? Boolean(latestConsent.analytics) : false;
+      }
+    };
+
+    const closeSettings = () => {
+      cookieBar.classList.remove('is-configuring');
+      if (settingsPanel) settingsPanel.hidden = true;
+    };
+
     acceptCookies.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'true');
+      storeConsent({ analytics: true });
       cookieBar.classList.remove('show');
+      closeSettings();
     });
+
+    if (settingsCookies) {
+      settingsCookies.addEventListener('click', openSettings);
+    }
+
+    if (saveCookies) {
+      saveCookies.addEventListener('click', () => {
+        const analyticsOptIn = analyticsToggle ? analyticsToggle.checked : false;
+        storeConsent({ analytics: analyticsOptIn });
+        cookieBar.classList.remove('show');
+        closeSettings();
+      });
+    }
+
+    if (cancelCookies) {
+      cancelCookies.addEventListener('click', () => {
+        closeSettings();
+      });
+    }
   }
 
   const handleFirstTab = (event) => {

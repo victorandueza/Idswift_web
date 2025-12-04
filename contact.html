@@ -110,7 +110,25 @@
     <p data-i18n="common.cookie.message">We use cookies to personalise content and measure traffic. Learn more in the <a href="privacy.html">privacy notice</a>.</p>
     <div class="actions">
       <button id="cookie-accept" class="btn primary" type="button" data-i18n="common.cookie.accept">Accept</button>
-      <a class="btn" href="privacy.html" data-i18n="common.cookie.settings">Settings</a>
+      <button id="cookie-settings" class="btn" type="button" data-i18n="common.cookie.settings">Settings</button>
+    </div>
+    <div class="cookiebar-panel" id="cookie-settings-panel" hidden>
+      <div class="cookiebar-option">
+        <div>
+          <p class="title" data-i18n="common.cookie.analyticsTitle">Analytics cookies</p>
+          <p class="desc" data-i18n="common.cookie.analyticsBody">Help us understand usage so we can improve flows. Disabled unless you opt in.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="cookie-analytics" />
+          <span class="slider" aria-hidden="true"></span>
+          <span class="sr-only" data-i18n="common.cookie.analyticsToggle">Toggle analytics cookies</span>
+        </label>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="cookie-save" type="button" data-i18n="common.cookie.save">Save preferences</button>
+        <button class="btn" id="cookie-cancel" type="button" data-i18n="common.cookie.cancel">Cancel</button>
+        <a class="text-link" href="privacy.html" data-i18n="common.cookie.notice">Privacy notice</a>
+      </div>
     </div>
   </div>
 </body>
