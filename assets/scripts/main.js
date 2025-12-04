@@ -226,13 +226,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const navLinks = $$('#site-navigation a[href^="#"]');
-  const scrollToSection = (id, block = 'start', offset = 0) => {
+  const scrollToSection = (id, block = 'start') => {
     const target = document.getElementById(id);
     if (!target) return;
-    const rect = target.getBoundingClientRect();
-    const targetY = rect.top + window.pageYOffset;
-    const finalY = block === 'center' ? targetY + rect.height / 2 - window.innerHeight / 2 - offset : targetY - offset;
-    window.scrollTo({ top: Math.max(finalY, 0), behavior: 'smooth' });
+    target.scrollIntoView({ behavior: 'smooth', block });
   };
 
   const setActiveNav = (targetId) => {
@@ -256,9 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (href.startsWith('#')) {
           event.preventDefault();
           const id = href.slice(1);
-          const block = id === 'services' ? 'center' : 'start';
-          const offset = id === 'services' ? 50 : 0;
-          scrollToSection(id, block, offset);
+          scrollToSection(id, 'start');
           setActiveNav(id);
           history.replaceState(null, '', `#${id}`);
         }
@@ -297,15 +292,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    const hashId = window.location.hash ? window.location.hash.slice(1) : '';
-    if (hashId) {
-      setActiveNav(hashId);
-    } else {
-      const firstHref = navLinks[0].getAttribute('href') || '';
-      if (firstHref.startsWith('#')) {
-        setActiveNav(firstHref.slice(1));
+    const applyHashScroll = () => {
+      const hashId = window.location.hash ? window.location.hash.slice(1) : '';
+      if (hashId) {
+        scrollToSection(hashId, 'start');
+        setActiveNav(hashId);
       }
-    }
+    };
+
+    requestAnimationFrame(() => {
+      if (window.location.hash) {
+        applyHashScroll();
+      } else {
+        const firstHref = navLinks[0].getAttribute('href') || '';
+        if (firstHref.startsWith('#')) {
+          setActiveNav(firstHref.slice(1));
+        }
+      }
+    });
+
+    window.addEventListener('hashchange', applyHashScroll);
   }
 
   if (i18n) {

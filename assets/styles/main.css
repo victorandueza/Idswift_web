@@ -185,9 +185,12 @@ header {
   box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2), var(--shadow);
 }
 
-#home,
-#services {
+#home {
   scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+#services {
+  scroll-margin-top: calc(var(--header-height));
 }
 
 .cta-grid {
@@ -380,7 +383,15 @@ header {
 }
 
 #services.section {
-  padding-top: 20px;
+  padding-top: 0px;
+}
+
+.page-privacy .section {
+  padding: 48px 20px;
+}
+
+.page-privacy .policy .grid {
+  gap: 14px;
 }
 
 .section h2 {
@@ -530,6 +541,51 @@ form {
   gap: 14px;
 }
 
+.form-row-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 0;
+}
+
+.form-row-inline input[type='checkbox'] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.form-row-inline label {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.form-message-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.form-message-row .field {
+  display: grid;
+  gap: 6px;
+}
+
+.message-actions {
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (max-width: 720px) {
+  .form-message-row {
+    grid-template-columns: 1fr;
+  }
+
+  .message-actions {
+    justify-content: flex-start;
+  }
+}
+
 label {
   font-weight: 700;
 }
@@ -641,10 +697,17 @@ footer {
 }
 
 .page-header {
-  padding: 120px 24px 64px;
+  padding: 80px 24px 48px;
   text-align: center;
-  background: rgba(9, 14, 24, 0.45);
-  border-bottom: 1px solid var(--border);
+  background: radial-gradient(circle at 18% 12%, rgba(24, 160, 146, 0.14) 0, rgba(24, 160, 146, 0) 40%),
+    radial-gradient(circle at 82% 10%, rgba(242, 201, 76, 0.18) 0, rgba(242, 201, 76, 0) 42%),
+    linear-gradient(180deg, rgba(253, 248, 241, 0.95), rgba(244, 236, 223, 0.92));
+  border-bottom: 1px solid rgba(216, 209, 198, 0.6);
+}
+
+.page-contact .page-header,
+.page-privacy .page-header {
+  padding: 52px 24px 32px;
 }
 
 .page-header h1 {

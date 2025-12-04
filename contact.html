@@ -68,18 +68,20 @@
               <label for="email" data-i18n="common.forms.contact.labels.email">Email</label>
               <input id="email" name="email" type="email" autocomplete="email" placeholder="you@hotelgroup.com" required data-i18n="common.forms.contact.placeholders.email" data-i18n-attr="placeholder" />
             </div>
-            <div>
-              <label for="message" data-i18n="common.forms.contact.labels.message">Message</label>
-              <textarea id="message" name="message" placeholder="What would you like to achieve?" required data-i18n="common.forms.contact.placeholders.message" data-i18n-attr="placeholder"></textarea>
+            <div class="form-message-row">
+              <div class="field">
+                <label for="message" data-i18n="common.forms.contact.labels.message">Message</label>
+                <textarea id="message" name="message" placeholder="What would you like to achieve?" required data-i18n="common.forms.contact.placeholders.message" data-i18n-attr="placeholder"></textarea>
+              </div>
+              <div class="message-actions">
+                <button class="btn primary" id="submitBtn" type="submit" data-i18n="common.forms.contact.actions.send">Send</button>
+              </div>
             </div>
-            <div>
-              <label class="small">
-                <input type="checkbox" id="consent" required />
-                <span data-i18n="common.forms.contact.labels.consent">I have read and accept the <a href="privacy.html">privacy policy</a>.</span>
-              </label>
+            <div class="form-row-inline">
+              <input type="checkbox" id="consent" required />
+              <label class="small" for="consent" data-i18n="common.forms.contact.labels.consent">I have read and accept the <a href="privacy.html">privacy policy</a>.</label>
             </div>
             <input type="hidden" id="ACTION_URL" value="/api/contact" />
-            <button class="btn primary" id="submitBtn" type="submit" data-i18n="common.forms.contact.actions.send">Send</button>
             <p id="formStatus" class="status" role="status" aria-live="polite"></p>
 
             <!-- Submission endpoint defaults to the Firebase Function deployed at /api/contact.
